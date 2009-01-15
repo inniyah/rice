@@ -45,12 +45,21 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /*
-   File:   ricecomp.h
+   File:   include.h
    Author: Rene' Jager
    Update: January 4, 1993
-   Info:   compiler characteritics header file for RICE
+   Info:   include file for RICE
 */
 
 
-#include <riceansi.h>
+/* C header files */
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
+#include <ctype.h>
+#include <time.h>
+
+#include "compiler.h"
 

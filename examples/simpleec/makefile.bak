@@ -1,9 +1,0 @@
-simpleec.exe: simpleec 
-   aout2exe simpleec 
-   if exist simpleec del simpleec 
- 
-simpleec: simpleec.o 
-   gcc -o simpleec simpleec.o ../lib/rice.a -lpc -lm 
- 
-simpleec.o: simpleec.c 
-   gcc -c -I../include        simpleec.c 

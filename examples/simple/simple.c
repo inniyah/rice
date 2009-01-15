@@ -1,14 +1,13 @@
 /*
    File:   simple.c
    Author: Rene' Jager
-   Update: December 11, 1992
+   Update: December 29, 1992
    Info:   simple example for RICE
 */
 
 
 /* standard include files */
 
-#include <conio.h>
 #include <stdio.h>
 #include <ctype.h>
 
@@ -19,9 +18,13 @@
 
 /* application specific user i/o functions */
 
-void ask(int kb, int argc, char *argv[], float *grade)
+void ask(id, argc, argv, grade)
+   int id;
+   int argc;
+   char *argv[];
+   float *grade;
 {
-   char c, ans[16];
+   char c, ans[10];
    int i;
 
    printf("%s ", argv[0]);
@@ -31,7 +34,7 @@ void ask(int kb, int argc, char *argv[], float *grade)
    printf("? ");
 
    do {
-      scanf("%15s", ans);
+      scanf("%5s", ans);
       if(sscanf(ans, "%g", grade) != 1)
       {
          sscanf(ans, "%c", &c);
@@ -44,7 +47,11 @@ void ask(int kb, int argc, char *argv[], float *grade)
    } while(*grade != RICE_UNKNOWN && (*grade < RICE_FALSE || RICE_TRUE < *grade));
 }
 
-void inform(int kb, int argc, char *argv[], float *grade)
+void inform(id, argc, argv, grade)
+   int id;
+   int argc;
+   char *argv[];
+   float *grade;
 {
    int i;
 
@@ -58,7 +65,10 @@ void inform(int kb, int argc, char *argv[], float *grade)
       printf("! %g\n", *grade);
 }
      
-void report(int kb, int type, char *msg)
+void report(id, type, msg)
+   int id;
+   int type;
+   char *msg;
 {
    switch(type)
    {
@@ -73,7 +83,9 @@ void report(int kb, int type, char *msg)
 
 /* get file name from user */
 
-char *get_name(int command, char *filename)
+char *get_name(command, filename)
+   int command;
+   char *filename;
 {
    switch(command)
    {
@@ -88,13 +100,6 @@ char *get_name(int command, char *filename)
 }
 
 
-/* to prevent possible stack overflow... */
-
-#ifdef __BORLANDC__
-extern unsigned _stklen = 10000U;
-#endif
-
-
 /* linking facts with C-code */
 
 RICE_Linker(linker)
@@ -107,7 +112,7 @@ RICE_LINKER linkerPointer[] = {linker};
 
 /* main function */
 
-int main(void)
+int main()
 {
    int command, theES;
    char filename[13];
@@ -135,7 +140,7 @@ int main(void)
       printf("7 : destroy\n\n");
       printf("0 : exit\n");
 
-      command = getch();
+      command = getchar();
 
       switch(command)
       {

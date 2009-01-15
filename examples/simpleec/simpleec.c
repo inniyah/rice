@@ -8,7 +8,6 @@
 
 /* standard include files */
 
-#include <conio.h>
 #include <stdio.h>
 #include <ctype.h>
 
@@ -135,7 +134,7 @@ int main(void)
       printf("7 : destroy\n\n");
       printf("0 : exit\n");
 
-      command = getch();
+      command = getchar();
 
       switch(command)
       {

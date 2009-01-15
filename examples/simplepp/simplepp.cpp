@@ -6,9 +6,8 @@
 
 // standard include files
 
-#include <conio.h>
-#include <ctype.h>                      
-#include <iostream.h>
+#include <ctype.h>
+#include <iostream>
 #include <stdio.h>
 
 
@@ -24,15 +23,15 @@ void ask(int id, int argc, char *argv[], float *grade)
    char c, ans[10];
    int i;
 
-   cout << argv[0];
+   std::cout << argv[0];
 
-   if(argc > 1) cout << '(';
-   for(i = 1; i < argc - 1; i++) cout << argv[i] << ' ';
-   if(argc > 1) cout << argv[argc - 1] << ") ";
-   cout << "? ";
+   if(argc > 1) std::cout << '(';
+   for(i = 1; i < argc - 1; i++) std::cout << argv[i] << ' ';
+   if(argc > 1) std::cout << argv[argc - 1] << ") ";
+   std::cout << "? ";
 
    do {
-      cin >> ans;
+      std::cin >> ans;
       if(sscanf(ans, "%g", grade) != 1)
       {
          sscanf(ans, "%c", &c);
@@ -49,27 +48,27 @@ void inform(int id, int argc, char *argv[], float *grade)
 {
    int i;
 
-   cout << argv[0];
+   std::cout << argv[0];
 
-   if(argc > 1) cout << '(';
-   for(i = 1; i < argc - 1; i++) cout << argv[i] << ' ';
-   if(argc > 1) cout << argv[argc - 1] << ") ";
+   if(argc > 1) std::cout << '(';
+   for(i = 1; i < argc - 1; i++) std::cout << argv[i] << ' ';
+   if(argc > 1) std::cout << argv[argc - 1] << ") ";
    if(*grade == RICE_TRUE)
-      cout << "!\n";
+      std::cout << "!\n";
    else
-      cout << "! " << *grade << '\n';
+      std::cout << "! " << *grade << '\n';
 }
      
 void report(int id, int type, char *msg)
 {
    switch(type)
    {
-      case RICE_ERROR:   cerr << "ERROR: ";   break;
-      case RICE_WARNING: cerr << "WARNING: "; break;
-      case RICE_MESSAGE: cerr << "MESSAGE: "; break;
+      case RICE_ERROR:   std::cerr << "ERROR: ";   break;
+      case RICE_WARNING: std::cerr << "WARNING: "; break;
+      case RICE_MESSAGE: std::cerr << "MESSAGE: "; break;
    }
 
-   cerr << msg << '\n';
+   std::cerr << msg << '\n';
 }
 
 
@@ -79,13 +78,13 @@ char *get_name(int command, char *filename)
 {
    switch(command)
    {
-      case '1': cout << "File to compile from: "; break;
-      case '2': cout << "File to load from   : "; break;
-      case '3': cout << "File to save to     : "; break;
-      case '4': cout << "File to rebuild to  : "; break;
+      case '1': std::cout << "File to compile from: "; break;
+      case '2': std::cout << "File to load from   : "; break;
+      case '3': std::cout << "File to save to     : "; break;
+      case '4': std::cout << "File to rebuild to  : "; break;
    }
 
-   cin >> filename;
+   std::cin >> filename;
    return filename;
 }
 
@@ -102,7 +101,7 @@ extern unsigned _stklen = 10000U;
 class Beeper
 {
 public:
-   void doIt() { cout << '\x7'; }
+   void doIt() { std::cout << '\x7'; }
 };
 
 Beeper theBeeper;
@@ -137,7 +136,7 @@ int main()
    /* do loop while not exit command or error */
    do
    {
-      cout << "\n1 : compile\n"
+      std::cout << "\n1 : compile\n"
            << "2 : load\n"
            << "3 : save\n"
            << "4 : rebuild\n"
@@ -146,8 +145,8 @@ int main()
            << "7 : destroy\n\n"
            << "0 : exit\n";
 
-      cout.flush();
-      command = getch();
+      std::cout.flush();
+      command = getchar();
 
       switch(command)
       {

@@ -8,7 +8,6 @@
 
 /* standard include files */
 
-#include <conio.h>
 #include <stdio.h>
 #include <ctype.h>
 

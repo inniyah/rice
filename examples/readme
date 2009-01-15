@@ -1,5 +1,0 @@
-I've decided to organize the examples in directories. They were all mixed up before.
-I also created the makefiles for GNU's gcc, and got rid of the .bat files (moved them
-to OBSOLETE)
-
-Miry, May 1999

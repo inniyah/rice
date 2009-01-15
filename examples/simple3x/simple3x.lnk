@@ -1,9 +1,0 @@
-/*
-   File:   simple3x.lnk
-   Author: Rene' Jager
-   Update: November 16, 1992
-   Info:   link-file for RICE 3.x update example, see file rice3x.doc
-*/
-
-LINK("beep", printf("\x7"));
-
