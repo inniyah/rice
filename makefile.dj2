@@ -1,0 +1,79 @@
+# makefile for gcc RICE-library
+# Modified, Miry, April 1999
+
+CC = gcc
+# CMP_WARN = -W -Wall -Werror -Wno-unused
+CMP_WARN =
+CFLAGS	= -O2 -c
+LIBRARY =
+INCLUDE = -Iinclude
+COMPILE = ${CC} ${CMP_WARN} ${CFLAGS} ${INCLUDE}
+
+RICELIB = lib/rice.a
+ADD2LIB = ar r ${RICELIB}
+DELETE  = rm
+
+OBJDIR  = object/
+SRCDIR  = source/
+INCDIR  = include/
+SAMPLES = examples/
+
+OBJECTS = ${OBJDIR}compile1.o ${OBJDIR}compile2.o ${OBJDIR}compile3.o \
+          ${OBJDIR}compile4.o ${OBJDIR}destroy.o  ${OBJDIR}explain.o  \
+          ${OBJDIR}global.o   ${OBJDIR}infer.o    ${OBJDIR}load.o     \
+          ${OBJDIR}rebuild.o  ${OBJDIR}save.o
+
+HEADERS = ${INCDIR}compile.h  ${INCDIR}define.h   ${INCDIR}function.h \
+          ${INCDIR}include.h  ${INCDIR}rebuild.h  ${INCDIR}type.h     \
+          ${INCDIR}variable.h
+
+
+rice.a: ${OBJECTS}
+
+${OBJDIR}compile1.o: source/compile1.c ${INCDIR}compile.h ${HEADERS}
+	${COMPILE} -o ${OBJDIR}compile1.o ${SRCDIR}compile1.c
+	${ADD2LIB} ${OBJDIR}compile1.o
+
+${OBJDIR}compile2.o: source/compile2.c ${INCDIR}compile.h ${HEADERS}
+	${COMPILE} -o ${OBJDIR}compile2.o ${SRCDIR}compile2.c
+	${ADD2LIB} ${OBJDIR}compile2.o
+
+${OBJDIR}compile3.o: source/compile3.c ${INCDIR}compile.h ${HEADERS}
+	${COMPILE} -o ${OBJDIR}compile3.o ${SRCDIR}compile3.c
+	${ADD2LIB} ${OBJDIR}compile3.o
+
+${OBJDIR}compile4.o: source/compile4.c ${INCDIR}compile.h ${HEADERS}
+	${COMPILE} -o ${OBJDIR}compile4.o ${SRCDIR}compile4.c
+	${ADD2LIB} ${OBJDIR}compile4.o
+
+${OBJDIR}destroy.o: ${SRCDIR}destroy.c ${HEADERS}
+	${COMPILE} -o ${OBJDIR}destroy.o ${SRCDIR}destroy.c
+	${ADD2LIB} ${OBJDIR}destroy.o
+
+${OBJDIR}explain.o: ${SRCDIR}explain.c ${INCDIR}rebuild.h ${HEADERS}
+	${COMPILE} -o ${OBJDIR}explain.o ${SRCDIR}explain.c
+	${ADD2LIB} ${OBJDIR}explain.o
+
+${OBJDIR}global.o: ${SRCDIR}global.c ${HEADERS}
+	${COMPILE} -o ${OBJDIR}global.o ${SRCDIR}global.c
+	${ADD2LIB} ${OBJDIR}global.o
+
+${OBJDIR}infer.o: ${SRCDIR}infer.c ${HEADERS}
+	${COMPILE} -o ${OBJDIR}infer.o ${SRCDIR}infer.c
+	${ADD2LIB} ${OBJDIR}infer.o
+
+${OBJDIR}load.o: ${SRCDIR}load.c ${HEADERS}
+	${COMPILE} -o ${OBJDIR}load.o ${SRCDIR}load.c
+	${ADD2LIB} ${OBJDIR}load.o
+
+${OBJDIR}rebuild.o: ${SRCDIR}rebuild.c ${INCDIR}rebuild.h ${HEADERS}
+	${COMPILE} -o ${OBJDIR}rebuild.o ${SRCDIR}rebuild.c
+	${ADD2LIB} ${OBJDIR}rebuild.o
+
+${OBJDIR}save.o: ${SRCDIR}save.c ${HEADERS}
+	${COMPILE} -o ${OBJDIR}save.o ${SRCDIR}save.c
+	${ADD2LIB} ${OBJDIR}save.o
+
+clean:
+	${DELETE} ${OBJDIR}*.o
+	${DELETE} ${RICELIB}

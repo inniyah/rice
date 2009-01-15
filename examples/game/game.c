@@ -36,14 +36,33 @@ int nrOfMoves = 0;
 
 /* this part is coded for use with Microsoft C(++) 7.00 compiler */
 
-#include <graph.h>
+#if defined(_WIN32)
 
+#include <windows.h>
+
+/* hiding and showing cursor */
+
+#define hideCursor()   ShowCursor(FALSE)
+#define showCursor()   ShowCursor(TRUE)
+
+/* clear screen */
+
+#define clearScreen() _clearscreen(_GCLEARSCREEN)
+
+#else
+
+#include <graph.h>
 
 /* hiding and showing cursor */
 
 #define hideCursor()   _displaycursor(_GCURSOROFF)
 #define showCursor()   _displaycursor(_GCURSORON)
+
+/* clear screen */
+
+#define clearScreen() _clearscreen(_GCLEARSCREEN)
  
+#endif
 
 /* goto position on screen */
 
@@ -62,12 +81,6 @@ void putMark(int x, int y, int c)
    putChar(xTable[x], yTable[y], c);
    fieldTable[x - 1][y - 1] = c;
 }
-
-
-/* clear screen */
-
-#define clearScreen() _clearscreen(_GCLEARSCREEN)
-
 
 #elif defined(__BORLANDC__)
 

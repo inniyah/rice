@@ -49,6 +49,7 @@
    Author: Rene' Jager
    Update: December 30, 1992
    Info:   include file for easy use of RICE, see file rice.doc
+   Modif:  Miry, May 1999, solved some problem with #error's
 */
 
 
@@ -66,7 +67,7 @@
 /* truth constants */
 
 #if defined(TRUE) || defined(FALSE) || defined(UNKNOWN)
-#   error RICE easy macro's conflict with environment.
+#   "error RICE easy macro's conflict with environment."
 #endif
 
 #define TRUE      RICE_TRUE
@@ -77,7 +78,7 @@
 /* message constants */
 
 #if defined(ERROR) || defined(WARNING) || defined(MESSAGE)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #define ERROR     RICE_ERROR
@@ -88,7 +89,7 @@
 /* linker macro's */
 
 #if defined(NORM) || defined(LINKER) || defined(Linker) || defined(Link)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #define NORM     RICE_NORM
@@ -100,7 +101,7 @@
 /* arguments macro's */
 
 #if defined(grade) || defined(argc) || defined(argv)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #define GRADE   RICE_grade
@@ -111,39 +112,39 @@
 /* adjustment macro's */
 
 #if defined(Set) || defined(Reset) || defined(Switch)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(Redirect) || defined(Use) || defined(Explain)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(SetAdaptive) || defined(ResetAdaptive) || defined(SwitchAdaptive)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(SetRepetitive) || defined(ResetRepetitive) || defined(SwitchRepetitive)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(SetInteractive) || defined(ResetInteractive) || defined(SwitchInteractive)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(SetRecursive) || defined(ResetRecursive) || defined(SwitchRecursive)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(SetSelective) || defined(ResetSelective) || defined(SwitchSelective)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(UseLinker) || defined(UseIntersection) || defined(UseUnion)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(ExplainHow) || defined(ExplainWhy)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #define Explain(kb, typ, fct, dpt)      RICE_MERGE(rice_Explain, typ(kb, fct, dpt))
@@ -177,11 +178,11 @@
 /* redirection macro's */
 
 #if defined(RedirectAsk) || defined(RedirectInform) || defined(RedirectReport)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(RedirectProtect) || defined(RedirectAbandon)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #define RedirectAsk(kb, fnc)       rice_RedirectAsk(kb, fnc)
@@ -195,19 +196,19 @@
 /* KB interfacing macro's */
 
 #if defined(CompileKB) || defined(AppendKB) || defined(SwapKB)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(LoadKB) || defined(SaveKB) || defined(RebuildKB)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(DestroyKB) || defined(ClearKB) || defined(InferKB)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(CopyKB) || defined(MoveKB)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #define AppendKB(kb, str)    rice_AppendKB(kb, str)
@@ -226,11 +227,11 @@
 /* ES interfacing macro's */
 
 #if defined(SwitchES) || defined(CopyES) || defined(MoveES)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #if defined(CheckES) || defined(DeleteES) || defined(CreateES)
-#   error RICE easy macro's conflict with environment.
+#   error "RICE easy macro's conflict with environment."
 #endif
 
 #define CheckES(es)          rice_CheckES(es)

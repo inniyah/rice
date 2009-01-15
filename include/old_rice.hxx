@@ -48,7 +48,7 @@
 // Author: Rene' Jager
 // Update: June 11, 1992
 // Info:   C++ include file for RICE, see file rice.doc
-
+// Modif:  I think this file is not needed at all (Miry, May 1999)
 
 #ifndef _RICE_HXX_
 #define _RICE_HXX_
