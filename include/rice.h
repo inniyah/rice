@@ -71,25 +71,23 @@
 
 /* define version and author */
 
-#define RICE_NAME      "RICE"
-#define RICE_VERSION   4.0
-#define RICE_AUTHOR    "Ren\x82 Jager"
-#define RICE_EMAIL     "R.Jager@ET.TUDelft.NL"
+#define RICE_NAME      "RICE-NG"
+#define RICE_VERSION   0.1
 
 
 /* type definitions */
 
 typedef RICE_PROTOTYPE(float (*RICE_NORM), (float, float));
-typedef RICE_PROTOTYPE(void (*RICE_LINKER), (int, int, int, char *[], float *, int *));
+typedef RICE_PROTOTYPE(void (*RICE_LINKER), (int, int, int, const char *[], float *, int *));
 
 
 /* linker macro's */
 
 #define RICE_Linker(func)   RICE_FUNCTION(void func, \
-(int rice_id, int rice_func, int rice_argc, char *rice_argv[], \
+(int rice_id, int rice_func, int rice_argc, const char *rice_argv[], \
 float *rice_grade, int *rice_num), (rice_id, rice_func, rice_argc, \
 rice_argv, rice_grade, rice_num), int rice_id; int rice_func; \
-int rice_argc; char *rice_argv[]; float *rice_grade; int *rice_num;)
+int rice_argc; const char *rice_argv[]; float *rice_grade; int *rice_num;)
 
 #define RICE_Link(str, code) \
 if(rice_func == ++(*rice_num)) \
