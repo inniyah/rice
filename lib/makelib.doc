@@ -1,0 +1,27 @@
+File:   makelib.doc
+Author: Rene' Jager
+Update: June 11, 1993
+Info:   documentation for RICE library making
+
+The batch file MakeLib.bat constructs a MAKE-file, named makefile, and
+executes a MAKE-utility.
+
+The memory model for Microsoft and Borland C compilers is set to LARGE.
+You need to set an environment varaible to overrule this:
+
+   set RICEMODEL=...
+
+The file MakeLib.bat builds a MAKE-file, which contains the rules for
+making a library and should be understand by most MAKE-utilities; if not,
+you have to make one yourself.
+
+You can obtain a MAKE-file by supplying a dummy MAKE-utility, for example:
+
+   MakeLib bcc pause
+
+which will replace the execution of a MAKE-utility by the PAUSE statement.
+
+If you use Gnu CC (DJGPP for MS-DOS) and using the toolbox, you can copy
+the library `rice.a' to `\djgpp\lib\librice.a', which enables the use of
+the `-lrice' switch for GCC.
+

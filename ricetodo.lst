@@ -1,0 +1,10 @@
+The things to be left for future releases (to which you can contribute... ;-):
+
+ - extend the aggregation of multiple conclusions for the same fact; now
+   the aggregation consist of a simple average (arithmetic mean)
+
+ - a better parser should be written; preferably by using bison and flex
+
+ - whatever you come up with...
+
+Rene' (R.Jager@ET.TUDelft.NL)

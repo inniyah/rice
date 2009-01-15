@@ -1,0 +1,5 @@
+This directory is ment to contain libraries. You can use the MakeLib-utility
+for building a library for several compilers (Microsoft, Borland or Gnu).
+
+See the documentation file MakeLib.doc for information of the utility.
+

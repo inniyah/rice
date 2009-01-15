@@ -227,7 +227,7 @@ FUNCTION(static void HowRule,
    if(depth)
    {
       /* find next fact in tree */
-      for(i = 1; i <= rule->condition[i]; i++)
+      for(i = 1; i <= rule->condition[0]; i++)
       {
          if(IDX2OBJ(IDX2CON(rule->condition[i])->object)->type == TYP_FACT)
             HowFact(IDX2FAC(IDX2CON(rule->condition[i])->object), depth);
@@ -253,7 +253,7 @@ FUNCTION(static void HowRelation,
    if(depth)
    {
       /* find next fact in tree */
-      for(i = 1; i <= relation->dimension[i]; i++)
+      for(i = 1; i <= relation->dimension[0]; i++)
       {
          if(IDX2DIM(relation->dimension[i])->object != fact)
             if(IDX2OBJ(IDX2DIM(relation->dimension[i])->object)->type == TYP_FACT)
@@ -320,7 +320,7 @@ FUNCTION(static void WhyRule,
    if(depth)
    {
       /* find fact which is inferred at the moment and go deeper */
-      for(i = 1; i <= rule->action[i]; i++)
+      for(i = 1; i <= rule->action[0]; i++)
       {
          if(IDX2OBJ(IDX2ACT(rule->action[i])->object)->type == TYP_FACT)
             if(IDX2FAC(IDX2ACT(rule->action[i])->object)->slot.INFERRING)
@@ -348,7 +348,7 @@ FUNCTION(static void WhyRelation,
    if(depth)
    {
       /* find fact which is inferred at the moment and go deeper */
-      for(i = 1; i <= relation->dimension[i]; i++)
+      for(i = 1; i <= relation->dimension[0]; i++)
       {
          if(IDX2DIM(relation->dimension[i])->object != fact)
             if(IDX2OBJ(IDX2DIM(relation->dimension[i])->object)->type == TYP_FACT)

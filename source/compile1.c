@@ -359,6 +359,9 @@ FUNCTION(void CompileLine,
             object = FAC2OBJ(CompileFact(argument[1]));
          }
 
+         if(!action->argv)
+            ALLOC(action->argv, 1, char *);
+
          action->argv[0] = object->symbolic;
          action->object = object->number;
          action->grade = (strlen(argument[2])) ? atof(argument[2]) : GRD_TRUE;
@@ -736,6 +739,9 @@ FUNCTION(void CompileLine,
             AddIndex(rule->number, fact->forward);
          }
 
+         if(!condition->argv)
+            ALLOC(condition->argv, 1, char *);
+
          condition->argv[0] = object->symbolic;
          condition->object = object->number;
          condition->level = (strlen(argument[2])) ? atof(argument[2]) : GRD_FALSE;
@@ -803,6 +809,9 @@ FUNCTION(void CompileLine,
             object = FAC2OBJ(fact = CompileFact(argument[1]));
             AddIndex(rule->number, fact->backward);
          }
+
+         if(!action->argv)
+            ALLOC(action->argv, 1, char *);
 
          action->argv[0] = object->symbolic;
          action->object = object->number;
@@ -902,6 +911,9 @@ FUNCTION(void CompileLine,
             AddIndex(relation->number, fact->forward);
             AddIndex(relation->number, fact->backward);
          }
+
+         if(!dimension->argv)
+            ALLOC(dimension->argv, 1, char *);
 
          dimension->argv[0] = object->symbolic;
          dimension->object = object->number;
