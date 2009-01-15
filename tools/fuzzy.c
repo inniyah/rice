@@ -77,7 +77,7 @@ float fpi(float val, float p1, float p2, float p3, float p4)
    if((p1 + p2)/2.0 <= val && val < p2)
       return 1.0 - 2.0*SQR(val - p2)/SQR(p1 - p2);
    if(p3 < val && val <= (p3 + p4)/2.0)
-      return 1.0 - 2.0*SQR(val - p4)/SQR(p3 - p4);
+      return 1.0 - 2.0*SQR(val - p3)/SQR(p3 - p4);
    if((p3 + p4)/2.0 <= val && val < p4)
       return 2.0*SQR(val - p4)/SQR(p3 - p4);
 
@@ -425,3 +425,28 @@ float *fscut(int len, float *dest, float *src, float cut)
 
 
 
+#ifdef TEST_FUZZY
+
+#include <stdio.h>
+
+int main()
+{
+   float val;
+   val = fpi(0.1, 1.0, 2.0, 3.0, 4.0);
+   printf("val = %f\n", val);
+   val = fpi(1.1, 1.0, 2.0, 3.0, 4.0);
+   printf("val = %f\n", val);
+   val = fpi(1.6, 1.0, 2.0, 3.0, 4.0);
+   printf("val = %f\n", val);
+   val = fpi(2.1, 1.0, 2.0, 3.0, 4.0);
+   printf("val = %f\n", val);
+   val = fpi(3.1, 1.0, 2.0, 3.0, 4.0);
+   printf("val = %f\n", val);
+   val = fpi(3.6, 1.0, 2.0, 3.0, 4.0);
+   printf("val = %f\n", val);
+   val = fpi(4.1, 1.0, 2.0, 3.0, 4.0);
+   printf("val = %f\n", val);
+   return 0;
+}
+
+#endif
