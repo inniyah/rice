@@ -1,0 +1,22 @@
+File:   makeprog.doc
+Author: Rene' Jager
+Update: June 11, 1993
+Info:   documentation for RICE example program making
+
+The batch file MakeProg.bat constructs a MAKE-file, named makefile, and
+executes a MAKE-utility.
+
+The memory model for Microsoft and Borland C compilers is set to LARGE
+for all examples. This means that the LARGE libraries are necessary; see
+the file ..\lib\makelib.doc for info on building libraries.
+
+The files MakeProg.* builds a MAKE-file which contains the rules for the
+building of an example and should be understand by most MAKE-utilities;
+if not, you have to make one yourself.
+
+You can obtain a MAKE-file by supplying a dummy MAKE-utility, for example:
+
+   MakeLib bcc simple pause
+
+which will replace the execution of a MAKE-utility by the PAUSE statement.
+

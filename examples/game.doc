@@ -1,0 +1,31 @@
+/*
+   File:   game.doc
+   Author: Rene' Jager
+   Update: November 21, 1992
+   Info:   documentation for game example
+*/
+
+
+The GAME example (as the name says, a small game) exist of the following
+files:
+
+ - game.c     source file (partly Borland C, partly Microsoft C)
+ - game.kb    knowledge base
+
+The game example is an application of RICE for playing the game tick-tack-toe,
+also known as tic-tac-toc.
+
+Starting the program without command-line arguments will result in playing
+the game against the expert system. When you start up the program with an
+knowledge base file as argument it will result in a game between the standard
+knwoledge base and the knowledge base entered as command-line argument. For
+example:
+
+   game game.kb [ENTER]
+
+will cause the expert system to play against a copy of itself. Probably you
+can make better knowledge base which is much better...
+
+See file RICE.DOC for more info on RICE.
+
+

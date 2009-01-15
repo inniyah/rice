@@ -1,0 +1,21 @@
+Init ok to fire
+
+InitLayFrw one
+InitLayFrw two
+
+Data invoke layer two first
+
+IfNot invoke layer two first
+ThenInvLay one
+ElseInvLay two
+
+Layer one
+
+If ok to fire
+ThenInf this is layer one
+
+Layer two
+
+If ok to fire
+ThenInf this is layer two
+

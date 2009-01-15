@@ -1,0 +1,10 @@
+Init always true
+
+Data future action grade
+
+If future action grade
+ThenActGrd the action : 1 : 0
+
+If always true
+Action the action
+   ThenInf conclusion with changed grade

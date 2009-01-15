@@ -1,0 +1,160 @@
+Init I moved : 0
+
+Layer See if I lost
+
+Goal You won the game...
+
+Define LosingRule
+IfNot I moved
+And you are on (#1)
+And you are on (#2)
+And you are on (#3)
+ThenInf You won the game...
+Then I moved
+ThenRun stop the game
+
+LosingRule a1 : a2 : a3
+LosingRule b1 : b2 : b3
+LosingRule c1 : c2 : c3
+
+LosingRule a1 : b1 : c1
+LosingRule a2 : b2 : c2
+LosingRule a3 : b3 : c3
+
+LosingRule a1 : b2 : c3
+LosingRule a3 : b2 : c1
+
+
+Layer Trying to win
+
+Goal I won the game...
+
+Define WinningRule
+IfNot I moved
+And I am on (#1)
+And I am on (#2)
+And is empty (#3)
+Then put me on (#3)
+ThenInf I won the game...
+Then I moved
+ThenRun stop the game
+
+Define WinningLine
+WinningRule #1 : #2 : #3
+WinningRule #1 : #3 : #2
+WinningRule #2 : #3 : #1
+
+WinningLine a1 : a2 : a3
+WinningLine b1 : b2 : b3
+WinningLine c1 : c2 : c3
+
+WinningLine a1 : b1 : c1
+WinningLine a2 : b2 : c2
+WinningLine a3 : b3 : c3
+
+WinningLine a1 : b2 : c3
+WinningLine a3 : b2 : c1
+
+
+Layer Prevent you from winning
+
+Goal I prevented you from winning...
+
+Define PreventRule
+IfNot I moved
+And you are on (#1)
+And you are on (#2)
+And is empty (#3)
+Then put me on (#3)
+ThenInf I prevented you from winning...
+Then I moved
+
+Define PreventLine
+PreventRule #1 : #2 : #3
+PreventRule #1 : #3 : #2
+PreventRule #2 : #3 : #1
+
+PreventLine a1 : a2 : a3
+PreventLine b1 : b2 : b3
+PreventLine c1 : c2 : c3
+
+PreventLine a1 : b1 : c1
+PreventLine a2 : b2 : c2
+PreventLine a3 : b3 : c3
+
+PreventLine a1 : b2 : c3
+PreventLine a3 : b2 : c1
+
+
+Layer trying to win
+
+Goal I try to win...
+
+Define TryingRule
+IfNot I moved
+And I am on (#1)
+And is empty (#2)
+And is empty (#3)
+Then put me on (#3)
+ThenInf I try to win...
+Then I moved
+ 
+Define TryingLine
+TryingRule #1 : #2 : #3
+TryingRule #2 : #1 : #3
+TryingRule #3 : #2 : #1
+
+TryingLine a1 : a2 : a3
+TryingLine b1 : b2 : b3
+TryingLine c1 : c2 : c3
+
+TryingLine a1 : b1 : c1
+TryingLine a2 : b2 : c2
+TryingLine a3 : b3 : c3
+
+TryingLine a1 : b2 : c3
+TryingLine a3 : b2 : c1
+
+
+Layer Still an empty field
+        
+Goal some initial move...
+
+IfNot I moved
+And is empty (a1)      
+And is empty (a2)
+And is empty (a3)
+And is empty (b1)
+And is empty (b2)
+And is empty (b3)
+And is empty (c1)
+And is empty (c2)
+And is empty (c3)
+Then I moved
+ThenRun put me somewhere
+ThenInf some initial move...
+               
+               
+Layer Just make a move
+
+Goal I made my move...
+
+Define MoveRule
+IfNot I moved
+And is empty (#1)
+Then put me on (#1)
+ThenInf I made my move...
+Then I moved
+
+MoveRule a1
+MoveRule a2
+MoveRule a3
+MoveRule b1
+MoveRule b2
+MoveRule b3
+MoveRule c1
+MoveRule c2
+MoveRule c3
+
+
+

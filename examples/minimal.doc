@@ -1,0 +1,20 @@
+/*
+   File:   minimal.doc
+   Author: Rene' Jager
+   Update: December 15, 1992
+   Info:   documentation for minimal example
+*/                                   
+
+
+The MINIMAL example exist of the following files:
+
+ - minimal.c     source file (pure ANSI-C)
+
+The resulting program MINIMAL.EXE expects a binary knowledge file as
+command-line argument:
+
+   MINIMAL <binary-knowledge-base> [ENTER]
+
+All it does after this is inferring the knowledge base.
+
+

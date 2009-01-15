@@ -1,0 +1,189 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * RICE 4.0x              Copyright (C) 1993             Rene' Jager *
+ *                                                                   *
+ *                                                                   *
+ * This toolbox is free software; you can redistribute it and/or     *
+ * modify it under the terms of the GNU General Public License as    *
+ * published by the Free Software Foundation; either version 2 of    *
+ * the License, or (at your option) any later version.               *
+ *                                                                   *
+ * This toolbox is distributed in the hope that it will be useful,   *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of    *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the      *
+ * GNU General Public License for more details.                      *
+ *                                                                   *
+ * You should have received a copy of the GNU General Public License *
+ * along with this toolbox; if not, write to the:                    *
+ *                                                                   *
+ *    Free Software Foundation, Inc.                                 *
+ *    675 Mass Ave, Cambridge                                        *
+ *    MA 02139, USA.                                                 *
+ *                                                                   *
+ * See the RICE documentation for more information on the toolbox.   *
+ * The file COPYING for the complete GNU General Public License.     *
+ *                                                                   *
+ * You can reach me by (preferably e-mail):                          *
+ *                                                                   *
+ *    Rene' Jager                                                    *
+ *                                                                   *
+ *    Delft University of Technology                                 *
+ *    Department of Electrical Engineering                           *
+ *    Control Laboratory                                             *
+ *                                                                   *
+ *    Room ET 12.06                                                  *
+ *                                                                   *
+ *    Mekelweg 4                                                     *
+ *    P.O.Box 5031                                                   *
+ *    2600 GA  Delft                                                 *
+ *    The Netherlands                                                *
+ *                                                                   *
+ *    e-mail: R.Jager@ET.TUDelft.NL                                  *
+ *    phone:  +31-15-78 51 14                                        *
+ *    fax:    +31-15-62 67 38                                        *
+ *    telex:  38151 butud nl                                         *
+ *                                                                   *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/*
+   File:   fuzzy.doc
+   Author: Rene' Jager
+   Update: November 16, 1992
+   Info:   documentation for fuzzy toolbox, fuzzy.h and fuzzy.c
+*/
+
+
+1. Introduction
+
+This file is the document-file related to FUZZY.H and FUZZY.C. These
+files can be used in combination with, for example, RICE or any other
+program.
+
+Several functions are available for:
+
+ - membership functions
+ - fuzzy logical operators
+ - defuzzification methods
+ - miscellaneous functions
+
+All function names start with an 'f'. The functions will be discussed in
+the following sections.
+
+
+2. Membership Functions
+
+Two types of membership functions are distinguished
+
+ - smooth membership functions
+
+      float fpi(float val, float p1, float p2, float p3, float p4)
+      float fdelta(float val, float p1, float p2, float p3)
+      float fgamma(float val, float p1, float p2)
+      float flambda(float val, float p1, float p2)
+
+ - straigth membership functions
+
+      float ftrapezium(float val, float p1, float p2, float p3, float p4)
+      float ftriangle(float val, float p1, float p2, float p3)
+      float fblock(float val, float p1, float p2)
+
+All return a membership grade in the interval [0, 1].
+
+
+3. Fuzzy Operators
+
+The standard implementation of negation (not), and three implementations 
+of intersection (and) and union (or) are available:
+
+ - intersection operators
+
+      float *fzand(int len, float *dest, float *src)
+      float *fland(int len, float *dest, float *src)
+      float *fpand(int len, float *dest, float *src)
+                         
+ - union operators
+
+      float *fzor(int len, float *dest, float *src)
+      float *flor(int len, float *dest, float *src)
+      float *fpor(int len, float *dest, float *src)
+
+ - negation operator
+
+      float *fnot(int len, float *dest)
+
+In which 'z', 'p' and 'l' stands for Zadeh, Probability and Lukasiewicz
+respectivily. Note that in those functions the argument named 'dest' will
+be changed. In case the 'len' argument is negative it is assumed that the
+'src' argument contains only one element. The 'dest' argument should always
+be an array of minimal 'len' (or -'len') floats.
+
+Additional functions are available for applying general, user defined,
+norm operators:
+
+ - general norm
+
+      float *fnorm(int len, float *dest, float *src,
+                   float (*norm)(float, float));
+
+ - general extended norm
+
+      float *fxnorm(int len, float *dest, float *src,
+                   float (*norm)(float, float), float par);
+ 
+These functions need an function calculating the desired norm as argument.
+
+
+4. Defuzzification Methods
+
+Two main types of defuzzification are available, the second is a special
+case of the first:
+
+ - centre-of-gravity (normal and indexed)
+
+      float fcog(int len, float *set)
+      float ficog(int len, float *set, float lim)
+
+ - mean-of-maxima
+
+      float fmom(int len, float *set)
+
+The application of the (indexed-)fuzzy-mean defuzzification method can be
+performed using the f(i)cog functions.
+
+
+5. Miscellaneous Functions
+
+In addition to the above discussed functions and macro's also the following
+functions are available:
+
+ - height of fuzzy set
+
+      float fhgt(int len, float *set)
+
+ - alpha-cuts (normal and strong)
+
+      float *fcut(int len, float *dest, float *src, float cut)
+      float *fscut(int len, float *dest, float *src, float cut)
+
+
+6. Bugs, Remarks and Suggestions
+
+In case of bugs, please report to author. Remarks and suggestions, as well
+as supplements are welcome. The author's adress for correspondence is:
+
+   Rene' Jager
+
+   Delft University of Technology
+   Department of Electrical Engineering
+   Control Laboratory
+   Room 12.06
+
+   Mekelweg 4
+   P.O. Box 5031
+   2600 GA  Delft
+   The Netherlands
+
+   Phone:  (015) 78 51 14
+   Telex:  38151 butud nl
+   Fax:    +31-15 65 67 38
+   E-mail: R.Jager@ET.TUDelft.NL
+

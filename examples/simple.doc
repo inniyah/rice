@@ -1,0 +1,18 @@
+/*
+   File:   simple.doc
+   Author: Rene' Jager
+   Update: November 21, 1992
+   Info:   documentation for simple example
+*/
+
+
+The example SIMPLE (as the name says, a simple example) exist of the
+following files:
+
+ - simple.c     source file (pure ANSI-C)
+
+It simply shows a menu for compiling, infering, ..., of knowledge bases.
+For testing you can use the knowledge base ANIMALS.KB. See file RICE.DOC
+for more info on RICE itself.
+
+

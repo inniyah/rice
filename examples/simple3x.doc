@@ -1,0 +1,18 @@
+/*
+   File:   simple3x.doc
+   Author: Rene' Jager
+   Update: November 21, 1992
+   Info:   documentation for upgrade example
+*/
+
+
+The example RICE 3.x application exist of the following files:
+
+ - simple3x.c                   source file (pure ANSI-C)
+ - rice.cod (:= simple3x.cod)   RICE code-file
+ - rice.lnk (:= simple3x.lnk)   RICE link-file
+
+For testing you can use the knowledge base ANIMALS.KB or one of your own.
+See the file RICE3X.DOC for more info on updating RICE 3.x applications
+and the file RICE.DOC for more info on RICE itself.
+

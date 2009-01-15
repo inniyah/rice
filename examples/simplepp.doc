@@ -1,0 +1,18 @@
+// File:   simplepp.doc
+// Author: Rene' Jager
+// Update: November 26, 1992
+// Info:   documentation for simple C++ example
+
+
+The C++ example SIMPLE (as the name says, a simple example) exist of the
+following files:
+
+ - simplepp.cpp   C++ source file
+
+It simply shows a menu for compiling, infering, ..., of knowledge bases
+using the C++ wrapping class RICE, and the fact that you can use C++ code
+within the code linked to facts by means of a RICE linker function. For
+testing you can use the knowledge base ANIMALS.KB. See file RICE.DOC for
+more info on RICE itself.
+
+

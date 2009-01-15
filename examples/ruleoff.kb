@@ -1,0 +1,13 @@
+Data inactivate rule
+
+Init always true
+
+If inactivate rule
+ThenRulOff the rule in question
+ThenInf rule will not be fired...
+ElseRulOn the rule in question
+
+Rule the rule in question
+If always true
+ThenInf the rule is fired...
+

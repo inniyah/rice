@@ -1,0 +1,74 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * RICE 4.0x              Copyright (C) 1993             Rene' Jager *
+ *                                                                   *
+ *                                                                   *
+ * This toolbox is free software; you can redistribute it and/or     *
+ * modify it under the terms of the GNU General Public License as    *
+ * published by the Free Software Foundation; either version 2 of    *
+ * the License, or (at your option) any later version.               *
+ *                                                                   *
+ * This toolbox is distributed in the hope that it will be useful,   *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of    *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the      *
+ * GNU General Public License for more details.                      *
+ *                                                                   *
+ * You should have received a copy of the GNU General Public License *
+ * along with this toolbox; if not, write to the:                    *
+ *                                                                   *
+ *    Free Software Foundation, Inc.                                 *
+ *    675 Mass Ave, Cambridge                                        *
+ *    MA 02139, USA.                                                 *
+ *                                                                   *
+ * See the RICE documentation for more information on the toolbox.   *
+ * The file COPYING for the complete GNU General Public License.     *
+ *                                                                   *
+ * You can reach me by (preferably e-mail):                          *
+ *                                                                   *
+ *    Rene' Jager                                                    *
+ *                                                                   *
+ *    Delft University of Technology                                 *
+ *    Department of Electrical Engineering                           *
+ *    Control Laboratory                                             *
+ *                                                                   *
+ *    Room ET 12.06                                                  *
+ *                                                                   *
+ *    Mekelweg 4                                                     *
+ *    P.O.Box 5031                                                   *
+ *    2600 GA  Delft                                                 *
+ *    The Netherlands                                                *
+ *                                                                   *
+ *    e-mail: R.Jager@ET.TUDelft.NL                                  *
+ *    phone:  +31-15-78 51 14                                        *
+ *    fax:    +31-15-62 67 38                                        *
+ *    telex:  38151 butud nl                                         *
+ *                                                                   *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/*                                                   
+   File:   rice3x.doc
+   Author: Rene' Jager
+   Update: Novermber 17, 1992
+   Info:   documentation for updating RICE 3.x applications
+*/
+
+
+This file will explain how to update applications using RICE 3.x software.
+In fact the update will not be so hard. For upgrading RICE 3.x applications
+for using the RICE 4.0 library functions, three ways of upgrading are
+possible:
+
+ - Replace RICE.H and RICE.C with RICE3X.H and RICE3X.C. This should be
+   done in source and include files as well as in make and project files.
+
+ - If you was used to include RICE.C directly in your application code,
+   instead of compiling seperately, you can still do this, but include the
+   UPGRADE directory in the include search path of the compiler.
+
+ - If you was used to include RICE.H in your application and compile RICE.C
+   seperately, you should compile your application with RICE_UPGRADE defined.
+   The file RICE.C can be compiled as normal.
+
+An example of this upgrading (SIMPLE3X; can be found in EXAMPLES directory)
+can be found in the EXAMPLES directory. See the file SIMPLE3X.DOC for more
+info. See the file RICE.DOC for more info on RICE.
+

@@ -1,0 +1,12 @@
+Goal e
+
+IfWhy a
+Then c
+
+If b
+Then d
+
+If c
+And d
+ThenInf e
+
