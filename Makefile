@@ -1,6 +1,6 @@
 NAME=rice
 MAJOR=0
-MINOR=0d1
+MINOR=0
 
 all: lib$(NAME).so lib$(NAME).a
 
@@ -8,7 +8,7 @@ SOURCES = $(shell find src -name '*.c')
 SHARED_OBJS = $(SOURCES:.c=.shared.o)
 STATIC_OBJS = $(SOURCES:.c=.static.o)
 
-CFLAGS=-O2 -g -Wall
+CFLAGS=-O2 -g -Wall -pedantic -ansi
 EXTRA_CFLAGS=
 STATIC_CFLAGS= $(CFLAGS) $(EXTRA_CFLAGS)
 SHARED_CFLAGS= $(CFLAGS) $(EXTRA_CFLAGS) -fPIC

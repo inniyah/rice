@@ -296,7 +296,7 @@ FUNCTION(static void ApplyRule,
 {
    register int i;
    OBJ_CONDITION *condition;
-   float grade, degree;
+   float grade = GRD_UNKNOWN, degree;
 
    if((rule->slot.FIRED || rule->slot.FIRING) && !recursiveMode)
       return;
