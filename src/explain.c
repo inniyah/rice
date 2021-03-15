@@ -84,11 +84,12 @@ FUNCTION(static void ResetExplained,
 {
    int i;
 
-   for(i = 1; i <= objectList[0]->number; i++)
+   for(i = 1; i <= objectList[0]->number; i++) {
       if(objectList[i]->type == TYP_RULE)
          OBJ2RUL(objectList[i])->slot.EXPLAINED = 0;
       if(objectList[i]->type == TYP_RELATION)
          OBJ2REL(objectList[i])->slot.EXPLAINED = 0;
+    }
 }
 
 
@@ -102,10 +103,11 @@ FUNCTION(static OBJ_FACT *FindFact,
 {
    int i;
 
-   for(i = 1; i <= objectList[0]->number; i++)
+   for(i = 1; i <= objectList[0]->number; i++) {
       if(objectList[i]->type == TYP_FACT)
          if(!strcmp(objectList[i]->symbolic, symbolic))
             return OBJ2FAC(objectList[i]);
+   }
 
    /* fact not found */
    Report(MSG_ERROR, MSG_UNKNOWN_FACT, symbolic);

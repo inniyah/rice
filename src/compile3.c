@@ -84,9 +84,11 @@ FUNCTION(void DestroyMacro,
 
    if(macro) {
       FREE(macro->name);
-      if(macro->line)
-         for(i = 0; i < macro->nrlines; i++)
+      if(macro->line) {
+         for(i = 0; i < macro->nrlines; i++) {
             FREE(macro->line[i]);
+         }
+      }
       FREE(macro->line);
       FREE(macro);
    }
